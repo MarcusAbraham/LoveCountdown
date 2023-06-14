@@ -67,7 +67,6 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
-    /* Added media query for mobile devices */
     @media (max-device-width: 1400px) {
       #countdown-container {
         margin-top: 150vh;
@@ -89,7 +88,6 @@
       }
     }
 
-    /* Added media query for mobile devices */
     @media (max-device-width: 600px) {
       #countdown-container {
         margin-top: 150vh;
@@ -103,6 +101,27 @@
       #countdown {
         font-size: 6vw; 
         top: 50%;
+        width:60vw;
+      }
+
+      h1 {
+        font-size: 15vw; 
+      }
+    }
+
+    @media (max-device-width: 400px) {
+      #countdown-container {
+        margin-top: 150vh;
+      }
+
+      #countdown-container::before {
+        top: 20%;
+        font-size: 150vw; 
+      }
+
+      #countdown {
+        font-size: 6vw; 
+        top: 55%;
         width:60vw;
       }
 
