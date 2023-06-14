@@ -28,8 +28,8 @@
     #countdown-container {
       font-size: 5vw;
       margin-bottom: 10vh;
-        display: inline-block;
-        line-height: 1; 
+      display: inline-block;
+      line-height: 1; 
     }
 
     #countdown-container::before {
@@ -52,19 +52,49 @@
 
     #countdown {
         position: absolute;
-        top: 43%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1;
         font-size: 1.5vw;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        width: 10em;
+        width:15vw;
     }
 
     h1 {
         margin-top: 6vh;
         font-size: 3vw;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    @media screen and (max-width: 768px) {
+      #countdown-container {
+        font-size: 10vw;
+      }
+
+      #countdown {
+        font-size: 5vw;
+        top: 55%; /* Adjust this value as needed */
+      }
+
+      h1 {
+        font-size: 5vw;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      #countdown-container {
+        font-size: 15vw;
+      }
+
+      #countdown {
+        font-size: 7vw;
+        top: 60%; /* Adjust this value as needed */
+      }
+
+      h1 {
+        font-size: 7vw;
+      }
     }
   </style>
 </head>
