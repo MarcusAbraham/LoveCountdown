@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reunion Countdown</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    body {
+      text-align: center;
+      font-family: "Baskerville Normal", Arial, sans-serif;
+      background-color: #d99ac5;
+      color: #F4F3EE;
+      overflow: hidden;
+    }
+
+    @keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+    }
+
+    #countdown-container {
+      font-size: 5vw;
+      margin-bottom: 10vh;
+        display: inline-block;
+        line-height: 1; 
+    }
+
+    #countdown-container::before {
+        content: "\2665"; 
+        color: #BF1A2F; 
+        position: absolute;
+        font-size: 40vw; 
+        top: 10%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        z-index: -1;
+
+        animation-name: heartBeat;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+
+    #countdown {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        font-size: 1.5vw;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        width: 10em;
+    }
+
+    h1 {
+        margin-top: 6vh;
+        font-size: 3vw;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <h1>Reunion Countdown</h1>
+  <div id="countdown-container">
+    <div id="countdown"></div>
+  </div>
+
+  <script>
+    const reunionDate = new Date('2023-09-16');
+    setInterval(updateCountdown, 1000);
+    
+    function updateCountdown() {
+      const currentDate = new Date();
+      const timeDifference = reunionDate - currentDate;
+
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown').innerHTML = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+    }
+  </script>
+</body>
+</html>
