@@ -3,7 +3,7 @@
 <head>
   <title>Reunion Countdown</title>
 
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="fonts/style.css">
   <style>
     body {
       text-align: center;
@@ -16,12 +16,15 @@
     @keyframes heartBeat {
     0% {
         transform: scale(1);
+        color: #BF1A2F;
     }
     50% {
         transform: scale(1.15);
+        color: #FF0000;
     }
     100% {
         transform: scale(1);
+        color: #BF1A2F;
     }
     }
 
@@ -48,6 +51,7 @@
         animation-duration: 2s;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
+        animation-fill-mode: both;
     }
 
     #countdown {
@@ -140,6 +144,9 @@
   <script>
     const reunionDate = new Date('2023-09-16');
     setInterval(updateCountdown, 1000);
+
+    //const heart = document.getElementById('countdown-container');
+    //heart.addEventListener('click', sendHeartEmoji);
     
     function updateCountdown() {
       const currentDate = new Date();
