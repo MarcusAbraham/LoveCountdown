@@ -117,9 +117,9 @@
       }
 
       #message-input {
-      width: 80vw;
-      height: 27vh;
-      font-size: 5vw;
+        width: 80vw;
+        height: 27vh;
+        font-size: 5vw;
       }
 
       h1 {
@@ -127,20 +127,31 @@
       }
     }
 
-    @media (max-device-width: 600px) {
+    @media (max-device-width: 500px) {
       #countdown-container::before {
-        top: 20%;
+        top: 15%;
         font-size: 150vw; 
       }
 
       #countdown {
         font-size: 6vw; 
-        top: 50%;
+        top: 45%;
         width:60vw;
       }
 
+      #countdown-container {
+        margin-bottom: 72vh;
+      }
+
       #message-container {
-        transform: translate(0%, -50%);
+        top: 50%;
+        transform: translate(0%, -65%);
+      }
+
+      #message-input {
+        width: 80vw;
+        height: 27vh;
+        font-size: 5vw;
       }
 
       h1 {
@@ -149,19 +160,24 @@
     }
 
     @media (max-device-width: 400px) {
-      #countdown-container {
-        margin-top: 150vh;
+      #countdown-container::before {
+        top: 15%;
+        font-size: 150vw; 
       }
 
-      #countdown-container::before {
-        top: 20%;
-        font-size: 150vw; 
+      #countdown-container {
+        margin-bottom: 78vh;
       }
 
       #countdown {
         font-size: 6vw; 
-        top: 55%;
-        width:60vw;
+        top: 45%;
+        width: 60vw;
+      }
+
+      #message-container {
+        top: 50%;
+        transform: translate(0%, -80%);
       }
 
       h1 {
