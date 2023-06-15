@@ -10,7 +10,14 @@
       font-family: "Baskerville Normal", Arial, sans-serif;
       background-color: #d99ac5;
       color: #F4F3EE;
-      overflow: hidden;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
+    h1 {
+        margin-top: 3vh;
+        font-size: 3vw;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     @keyframes heartBeat {
@@ -30,9 +37,9 @@
 
     #countdown-container {
       font-size: 5vw;
-      margin-bottom: 10vh;
       display: inline-block;
-      line-height: 1; 
+      line-height: 1;
+      margin-bottom: 100vh;
     }
 
     #countdown-container::before {
@@ -40,7 +47,7 @@
         color: #BF1A2F; 
         position: absolute;
         font-size: 40vw; 
-        top: 10%;
+        top: 5%;
         left: 0;
         right: 0;
         bottom: 0;
@@ -56,7 +63,7 @@
 
     #countdown {
         position: absolute;
-        top: 45%;
+        top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1;
@@ -65,26 +72,54 @@
         width:15vw;
     }
 
-    h1 {
-        margin-top: 6vh;
-        font-size: 3vw;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    #message-container {
+      display: inline-block;
+    }
+
+    #message-input {
+      margin-top: 5%;
+      margin-left: 2%;
+      width: 30vw;
+      height: 30vh; 
+      border-color: #BF1A2F;
+      border-radius: 2%;
+      border-width: medium;
+      resize: none;
+    }
+
+    #send-button {
+      background-color: #BF1A2F;
+      color: #F4F3EE;
+      width: 50%;
+      font-size: 3vh;
+      margin: 2%;
+    }
+
+    #message-input {
+      font-size: 1.5vw;
     }
 
     @media (max-device-width: 1400px) {
-      #countdown-container {
-        margin-top: 150vh;
-      }
-
       #countdown-container::before {
-        top: 20%;
+        top: 15%;
         font-size: 150vw; 
       }
 
       #countdown {
         font-size: 6vw; 
-        top: 50%;
+        top: 45%;
         width:60vw;
+      }
+
+      #message-container {
+        top: 50%;
+        transform: translate(0%, -50%);
+      }
+
+      #message-input {
+      width: 80vw;
+      height: 27vh;
+      font-size: 5vw;
       }
 
       h1 {
@@ -93,10 +128,6 @@
     }
 
     @media (max-device-width: 600px) {
-      #countdown-container {
-        margin-top: 150vh;
-      }
-
       #countdown-container::before {
         top: 20%;
         font-size: 150vw; 
@@ -106,6 +137,10 @@
         font-size: 6vw; 
         top: 50%;
         width:60vw;
+      }
+
+      #message-container {
+        transform: translate(0%, -50%);
       }
 
       h1 {
@@ -141,24 +176,29 @@
     <div id="countdown"></div>
   </div>
 
-  <script>
-    const reunionDate = new Date('2023-09-16');
-    setInterval(updateCountdown, 1000);
-
-    //const heart = document.getElementById('countdown-container');
-    //heart.addEventListener('click', sendHeartEmoji);
-    
-    function updateCountdown() {
-      const currentDate = new Date();
-      const timeDifference = reunionDate - currentDate;
-
-      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-      document.getElementById('countdown').innerHTML = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
-    }
-  </script>
+  <div id="message-container">
+    <textarea id="message-input" placeholder="Type your message"></textarea>
+    <button id="send-button">Send</button>
+  </div>
 </body>
+
+<script>
+  const reunionDate = new Date('2023-09-16');
+  setInterval(updateCountdown, 1000);
+
+  //const heart = document.getElementById('countdown-container');
+  //heart.addEventListener('click', sendHeartEmoji);
+  
+  function updateCountdown() {
+    const currentDate = new Date();
+    const timeDifference = reunionDate - currentDate;
+
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+    document.getElementById('countdown').innerHTML = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+  }
+</script>
 </html>
