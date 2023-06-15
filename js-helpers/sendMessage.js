@@ -17,10 +17,6 @@ function sendMessage(event) {
     embeds: [
       {
         fields: [
-          {
-            name: "From",
-            value: from,
-          },
           {  
             name: "Message",
             value: message
