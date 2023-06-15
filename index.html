@@ -189,28 +189,15 @@
   </div>
 
   <div id="message-container">
-    <textarea id="message-input" placeholder="Type your message"></textarea>
-    <button id="send-button">Send</button>
+    <form id="message-form" onsubmit="sendMessage(event)" 
+    action="https://discord.com/api/webhooks/1118960447417237555/w83sWvcPeo9j2NynzZcnUR1ZoPq8cjrRgxmSzyj2MRcJiv4jaZ0siHDI0FZdLDqs5SmP" 
+    method="POST">
+      <textarea id="message-input" placeholder="Type your message"></textarea>
+      <button type="submit" id="send-button">Send</button>
+    </form>
   </div>
 </body>
 
-<script>
-  const reunionDate = new Date('2023-09-16');
-  setInterval(updateCountdown, 1000);
-
-  //const heart = document.getElementById('countdown-container');
-  //heart.addEventListener('click', sendHeartEmoji);
-  
-  function updateCountdown() {
-    const currentDate = new Date();
-    const timeDifference = reunionDate - currentDate;
-
-    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-    document.getElementById('countdown').innerHTML = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
-  }
-</script>
+<script src="js-helpers/updateCountdown.js"></script>
+<script src="js-helpers/sendMessage.js"></script>
 </html>
